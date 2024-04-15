@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> introduction of sql </title>
+    <link rel="stylesheet" href="sty1.css">
+</head>
+
+<body>
+
+    <ul>
+        <li><a href="C:\Users\HP\Desktop\DBMS WEBSITE ANSHUL\mainpage.html">Home</a> </li>
+        <li><a href="#onlyfirstintro">Introduction of SQL</a> </li>
+        <li>
+            <a href="#">Examples of Each topic of SQL &#x25BE;</a>
+            <ul class="dropdown">
+                <li> <a href="#mainquery">Main Queries in SQL</a> </li>
+                <li> <a href="#aggregatefunctions">SQL Aggregate Functions </a> </li>
+                <li> <a href="#likeoperator">SQL LIKE Operator</a> </li>
+                <li> <a href="#view"> SQL VIEWS </a> </li>
+                <li> <a href="#nullvalues">NULL values in SQL </a> </li>
+                <li> <a href="#groupby"> SQL GROUP BY Statement </a> </li>
+                <li><a href="#commitandrollback"> COMMIT and ROLLBACK in SQL </a></li>
+                <li><a href="#grantandrevoke"> Grant and Revoke Command </a></li>
+                <li><a href="#joins"> SQL Joins </a></li>
+
+            </ul>
+        </li>
+
+        <li> <a href="#introductionofplsql">Introduction of PL/SQL</a> </li>
+        <li>
+            <a href="#">Examples of Each topic of PL/SQL &#x25BE;</a>
+            <ul class="dropdown">
+                <li> <a href="#variabless">PL/SQL Variables</a> </li>
+                <li> <a href="#proceduress"> PL/SQL Procedures </a> </li>
+                <li> <a href="#functionss">PL/SQL Functions </a> </li>
+                <li> <a href="#cursorss">PL/SQL Cursor</a> </li>
+                <li><a href="#triggerss">PL/SQL Trigger</a></li>
+                <li><a href="#exceptionss">PL/SQL Exception Handling</a></li>
+
+            </ul>
+        </li>
+
+
+    </ul>
+
+
+    <script>
+
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+    </script>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"> Go to top </button>
+
+
+
+
+
+    <div>
+
+        <h1 id="onlyfirstintro">Introduction of SQL</h1>
+        <br>
+        <P>
+            <i> SQL is a standard language for accessing and manipulating databases. </i> <br>
+            <br>
+
+            <strong> What is SQL? </strong> <br>
+            SQL stands for Structured Query Language <br>
+            SQL lets you access and manipulate databases <br>
+            SQL became a standard of the American National Standards Institute (ANSI) in 1986, and of the International
+            Organization for Standardization (ISO) in 1987 <br>
+            <br>
+
+            <strong> What Can SQL do?</strong> <br>
+            SQL can execute queries against a database <br>
+            SQL can retrieve data from a database<br>
+            SQL can insert records in a database<br>
+            SQL can update records in a database<br>
+            SQL can delete records from a database<br>
+            SQL can create new databases<br>
+            SQL can create new tables in a database<br>
+            SQL can create stored procedures in a database<br>
+            SQL can create views in a database<br>
+            SQL can set permissions on tables, procedures, and views<br>
+            <br>
+            <strong> SQL is a Standard - BUT.... </strong> <br>
+            Although SQL is an ANSI/ISO standard, there are different versions of the SQL language. <br>
+
+            However, to be compliant with the ANSI standard, they all support at least the major commands (such as
+            SELECT, UPDATE, DELETE, INSERT, WHERE) in a similar manner.
+            <br>
+            <br>
+
+
+            <b> <i> Note: Most of the SQL database programs also have their own proprietary extensions in addition to
+                    the
+                    SQL
+                    standard! </i> </b>
+
+            <br>
+
+
+            <br>
+
+            <strong> What is RDBMS? </strong> <br>
+
+            RDBMS stands for Relational Database Management System. <br>
+
+            RDBMS is a program used to maintain a relational database. <br>
+
+            RDBMS is the basis for all modern database systems such as MySQL, Microsoft SQL Server, Oracle, and
+            Microsoft Access. <br>
+
+            RDBMS uses SQL queries to access the data in the database. <br>
+
+            <br>
+
+            <strong> What is a Database Table? </strong> <br>
+            A table is a collection of related data entries, and it consists of columns and rows. <br>
+
+            A column holds specific information about every record in the table. <br>
+
+            A record (or row) is each individual entry that exists in a table. <br>
+
+            Look at a selection from the Northwind "Customers" table: <br>
+
+            <br>
+
+            <img src="1.JPG" alt="" height="500" width="1000">
+            <br>
+            <br>
+
+            <b> <i> The columns in the "Customers" table above are: CustomerID, CustomerName, ContactName, Address,
+                    City,
+                    PostalCode and Country. <br>
+                    The table has 5 records (rows). </i> </b>
+
+            <br>
+            <br>
+
+            <strong> What is a Relational Database? </strong> <br>
+            A relational database defines database relationships in the form of tables. The tables are related to each
+            other - based on data common to each. <br>
+
+            Look at the following three tables "Customers", "Orders", and "Shippers" from the Northwind database: <br>
+            <br>
+            <img src="2.JPG" alt="" height="600" width="900"> <br>
+            <br>
+
+            <b> <i> The relationship between the "Customers" table and the "Orders" table is the CustomerID column: </i>
+            </b>
+            <br>
+            <br>
+
+            <img src="3.JPG" alt="" height="500" width="900"> <br>
+            <br>
+            <br>
+
+        </P>
+
+
+    </div>
+
+    <div id="mainquery"> <br>
+
+        <p>
+        <h1>Main Queries of SQL</h1>
+        <br>
+        <br>
+        <h2> (i) SQL CREATE DATABASE Statement </h2>
+        <p>
+            <i> The CREATE DATABASE statement is used to create a new SQL database. </i> <br>
+            <br>
+            Syntax :- <br>
+            <br>
+
+            CREATE DATABASE databasename;
+            <br>
+            <br>
+        <h3>CREATE DATABASE Example :-</h3> <br>
+        <p>
+            CREATE DATABASE BCA;
+        </p>
+        </p>
+        <br>
+        <br>
+
+        <h2> (ii) SQL CREATE TABLE Statement </h2>
+        <p>
+            <i> The CREATE TABLE statement is used to create a new table in a database. </i> <br>
+            <br>
+            Syntax :- <br>
+            <br>
+
+            CREATE TABLE table_name <br>
+            ( <br>
+            column1 datatype, <br>
+            column2 datatype, <br>
+            column3 datatype, <br>
+            .... <br>
+            ); <br>
+            <br>
+            <br>
+        <p>
+            The column parameters specify the names of the columns of the table.
+            <br>
+            The datatype parameter specifies the type of data the column can hold (e.g. varchar, integer, date, etc.).
+            <br>
+            <br>
+
+        </p>
+        <h3>SQL CREATE TABLE Example :-</h3> <br>
+        <p>
+            CREATE TABLE Persons <br>
+            ( <br>
+            PersonID int, <br>
+            LastName varchar(255), <br>
+            FirstName varchar(255),<br>
+            Address varchar(255),<br>
+            City varchar(255) <br>
+            ); <br>
+
+        </p>
+        <br>
+        <br>
+        <p>
+            <i> The PersonID column is of type int and will hold an integer.
+                <br>
+                The LastName, FirstName, Address, and City columns are of type varchar and will hold characters, and the
+                maximum length for these fields is 255 characters. </i>
+            <br>
+            <br>
+
+        </p>
+
+        </p>
+        <br>
+        <br>
+
+        <h2> (iii) SQL INSERT INTO Statement </h2>
+        <p>
+            <i> The INSERT INTO statement is used to insert new records in a table. </i> <br>
+            <br>
+            Syntax :- <br>
+            <br>
+            INSERT INTO table_name (column1, column2, column3, ...)
+            VALUES (value1, value2, value3, ...);
+            <br>
+            or
+            <br>
+            INSERT INTO table_name
+            VALUES (value1, value2, value3, ...);
+
+
+            <br>
+            <br>
+
+        <h3>INSERT INTO Example :-</h3> <br>
+        <p>
+            INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) <br>
+            VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway'); <br>
+
+        </p>
+        <br>
+        <br>
+
+
+        <h2> (iv) SQL SELECT Statement</h2>
+        <p>
+            <i> The SELECT statement is used to select data from a database. </i> <br>
+            <br>
+            Syntax :- <br>
+            <br>
+            SELECT column1, column2, ...
+            FROM table_name;
+            <br>
+
+            <br>
+
+        <h3> Example of Select Statement :-</h3> <br>
+        <p>
+            SELECT * FROM Student;
+
+        </p>
+        <pre class="tablediagram">
+
+-+------+--------+---------------------+-------+------+------------+
+| roll | name   | address             | marks | age  | department |
++------+--------+---------------------+-------+------+------------+
+|    1 | anshul | #454 dashmesh nagar |  NULL | NULL | HR         |
+|    2 | mohit  | #454  nagar         |  NULL | NULL | IT         |
+|    3 | ajay   | #35 nagar           |  NULL | NULL | HR         |
+|    4 | sumit  | #45 newdelhi        |  NULL | NULL | IT         |
+|    5 | manjit | #23 ramdarbar       |  NULL | NULL | HR         |
++------+--------+---------------------+-------+------+------------+
+5 rows in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  anshul  SQL >
+         </pre>
+
+
+
+        <br>
+        <br>
+
+
+
+        <h2> (v) SQL UPDATE Statement</h2>
+        <p>
+            <i> The UPDATE statement is used to modify the existing records in a table. </i> <br>
+            <br>
+            Syntax :- <br>
+            <br>
+            UPDATE table_name <br>
+            SET column1 = value1, column2 = value2, ... <br>
+            WHERE condition; <br>
+            <br>
+
+            <br>
+
+        <h3> Example of Update Statement :-</h3> <br>
+
+        <pre class="tablediagram">
+
+-+------+--------+---------------------+-------+------+------------+
+| roll | name   | address             | marks | age  | department |
++------+--------+---------------------+-------+------+------------+
+|    1 | anshul | #454 dashmesh nagar |  NULL | NULL | HR         |
+|    2 | mohit  | #454  nagar         |  NULL | NULL | IT         |
+|    3 | ajay   | #35 nagar           |  NULL | NULL | HR         |
+|    4 | sumit  | #45 newdelhi        |  NULL | NULL | IT         |
+|    5 | manjit | #23 ramdarbar       |  NULL | NULL | HR         |
++------+--------+---------------------+-------+------+------------+
+5 rows in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  anshul  SQL >
+         </pre>
+
+        <pre class="tablediagram">
+
+            MySQL  localhost:3306 ssl  anshul  SQL > update student <br>
+                                                  -> set name="Anshul_kumar" <br>
+                                                  -> where roll=1; <br>
+Query OK, 1 row affected (0.1025 sec)
+
+Rows matched: 1  Changed: 1  Warnings: 0
+MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
++------+--------------+---------------------+-------+------+------------+
+| roll | name         | address             | marks | age  | department |
++------+--------------+---------------------+-------+------+------------+
+|    1 | Anshul_kumar | #454 dashmesh nagar |  NULL | NULL | HR         |
+|    2 | mohit        | #454  nagar         |  NULL | NULL | IT         |
+|    3 | ajay         | #35 nagar           |  NULL | NULL | HR         |
+|    4 | sumit        | #45 newdelhi        |  NULL | NULL | IT         |
+|    5 | manjit       | #23 ramdarbar       |  NULL | NULL | HR         |
++------+--------------+---------------------+-------+------+------------+
+5 rows in set (0.0009 sec)
+            
+
+         </pre>
+
+
+
+        <br>
+        <br>
+
+
+        <h2> (vi) SQL DELETE Statement</h2>
+        <p>
+            <i> The DELETE statement is used to delete existing records in a table. </i> <br>
+            <br>
+            Syntax :- <br>
+            <br>
+            DELETE FROM table_name WHERE condition; <br>
+
+            <br>
+
+            <br>
+
+        <h3> Example of Delete Statement :-</h3> <br>
+
+        <pre class="tablediagram">
+
+-+------+--------+---------------------+-------+------+------------+
+| roll | name   | address             | marks | age  | department |
++------+--------+---------------------+-------+------+------------+
+|    1 | anshul | #454 dashmesh nagar |  NULL | NULL | HR         |
+|    2 | mohit  | #454  nagar         |  NULL | NULL | IT         |
+|    3 | ajay   | #35 nagar           |  NULL | NULL | HR         |
+|    4 | sumit  | #45 newdelhi        |  NULL | NULL | IT         |
+|    5 | manjit | #23 ramdarbar       |  NULL | NULL | HR         |
++------+--------+---------------------+-------+------+------------+
+5 rows in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  anshul  SQL >
+         </pre>
+
+        <pre class="tablediagram">
+
+            MySQL  localhost:3306 ssl  anshul  SQL > delete from student
+                                                  -> where roll=5;
+Query OK, 1 row affected (0.0482 sec)
+ MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+                                        
++------+--------------+---------------------+-------+------+------------+
+| roll | name         | address             | marks | age  | department |
++------+--------------+---------------------+-------+------+------------+
+|    1 | Anshul_kumar | #454 dashmesh nagar |  NULL | NULL | HR         |
+|    2 | mohit        | #454  nagar         |  NULL | NULL | IT         |
+|    3 | ajay         | #35 nagar           |  NULL | NULL | HR         |
+|    4 | sumit        | #45 newdelhi        |  NULL | NULL | IT         |
++------+--------------+---------------------+-------+------+------------+
+4 rows in set (0.0009 sec)
+            
+
+         </pre>
+
+
+
+        <br>
+        <br>
+
+
+        <h2> (vii) SQL ALTER TABLE Statement</h2>
+        <p>
+            <i> The ALTER TABLE statement is used to add, delete, or modify columns in an existing table. <br>
+
+                The ALTER TABLE statement is also used to add and drop various constraints on an existing table. </i>
+            <br>
+            <br>
+            Syntax of Alter table Add column:- <br>
+            <br>
+            ALTER TABLE table_name <br>
+            ADD column_name datatype; <br>
+
+            <br>
+
+            <br>
+
+        <h3> Example of alter Statement :-</h3> <br>
+
+        <pre class="tablediagram">
+
+            MySQL  localhost:3306 ssl  anshul  SQL > desc student;
+            +------------+-------------+------+-----+---------+-------+
+            | Field      | Type        | Null | Key | Default | Extra |
+            +------------+-------------+------+-----+---------+-------+
+            | roll       | int(11)     | YES  |     | NULL    |       |
+            | name       | varchar(23) | YES  |     | NULL    |       |
+            | address    | varchar(50) | YES  |     | NULL    |       |
+            | marks      | int(11)     | YES  |     | NULL    |       |
+            | age        | int(11)     | YES  |     | NULL    |       |
+            | department | varchar(20) | YES  |     | NULL    |       |
+            +------------+-------------+------+-----+---------+-------+
+            6 rows in set (0.0015 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > alter table student
+                                                   -> add column s_id int;
+            Query OK, 0 rows affected (0.7192 sec)
+            
+            Records: 0  Duplicates: 0  Warnings: 0
+             MySQL  localhost:3306 ssl  anshul  SQL > desc student;
+            +------------+-------------+------+-----+---------+-------+
+            | Field      | Type        | Null | Key | Default | Extra |
+            +------------+-------------+------+-----+---------+-------+
+            | roll       | int(11)     | YES  |     | NULL    |       |
+            | name       | varchar(23) | YES  |     | NULL    |       |
+            | address    | varchar(50) | YES  |     | NULL    |       |
+            | marks      | int(11)     | YES  |     | NULL    |       |
+            | age        | int(11)     | YES  |     | NULL    |       |
+            | department | varchar(20) | YES  |     | NULL    |       |
+            | s_id       | int(11)     | YES  |     | NULL    |       |
+            +------------+-------------+------+-----+---------+-------+
+            7 rows in set (0.0016 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL >
+            
+        </pre>
+
+    </div>
+
+    <br>
+    <br>
+
+    <div id="aggregatefunctions">
+
+        <h1>SQL Aggregate Functions</h1>
+        <br>
+        <br>
+        <p>
+            <i> An aggregate function is a function that performs a calculation on a set of values, and returns a
+                single value.</i> <br>
+            <br>
+
+            The most commonly used SQL aggregate functions are: <br>
+
+            MIN() - returns the smallest value within the selected column <br>
+            MAX() - returns the largest value within the selected column <br>
+            COUNT() - returns the number of rows in a set <br>
+            SUM() - returns the total sum of a numerical column <br>
+            AVG() - returns the average value of a numerical column <br>
+            <br>
+
+
+        </p>
+        <h3> Example :-</h3> <br>
+
+        <pre class="tablediagram">
+                MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+                +------+--------------+---------------------+-------+------+------------+------+
+                | roll | name         | address             | marks | age  | department | s_id |
+                +------+--------------+---------------------+-------+------+------------+------+
+                |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+                |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+                |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+                |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+                +------+--------------+---------------------+-------+------+------------+------+
+                4 rows in set (0.0003 sec)
+                 MySQL  localhost:3306 ssl  anshul  SQL > select min(marks)
+                                                       -> from student;
+                +------------+
+                | min(marks) |
+                +------------+
+                |         10 |
+                +------------+
+                1 row in set (0.0234 sec)
+            </pre>
+        <br>
+        <br>
+
+
+        <pre class="tablediagram">
+                MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+                +------+--------------+---------------------+-------+------+------------+------+
+                | roll | name         | address             | marks | age  | department | s_id |
+                 +------+--------------+---------------------+-------+------+------------+------+
+                |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+                |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+                |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+                |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+                +------+--------------+---------------------+-------+------+------------+------+
+                 4 rows in set (0.0003 sec)
+
+                MySQL  localhost:3306 ssl  anshul  SQL > select max(marks)
+                                                       -> from student;
+                +------------+
+                | max(marks) |
+                +------------+
+                |         80 |
+                +------------+
+                1 row in set (0.0004 sec)
+            </pre>
+        <br>
+        <br>
+
+        <pre class="tablediagram">
+                MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+                +------+--------------+---------------------+-------+------+------------+------+
+                | roll | name         | address             | marks | age  | department | s_id |
+                 +------+--------------+---------------------+-------+------+------------+------+
+                |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+                |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+                |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+                |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+                +------+--------------+---------------------+-------+------+------------+------+
+                 4 rows in set (0.0003 sec)
+
+                 MySQL  localhost:3306 ssl  anshul  SQL > select count(roll)
+                                                        -> from student;
+                +-------------+
+                | count(roll) |
+                +-------------+
+                |           4 |
+                +-------------+
+                1 row in set (0.0115 sec)
+            </pre>
+
+        <br>
+        <br>
+
+        <pre class="tablediagram">
+                MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+                +------+--------------+---------------------+-------+------+------------+------+
+                | roll | name         | address             | marks | age  | department | s_id |
+                 +------+--------------+---------------------+-------+------+------------+------+
+                |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+                |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+                |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+                |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+                +------+--------------+---------------------+-------+------+------------+------+
+                 4 rows in set (0.0003 sec)
+
+                 MySQL  localhost:3306 ssl  anshul  SQL > select sum(marks)
+                                                       -> from student;
+                +------------+
+                | sum(marks) |
+                +------------+
+                |        140 |
+                +------------+
+                1 row in set (0.0007 sec)
+            </pre>
+        <br>
+        <br>
+
+        <pre class="tablediagram">
+                MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+                +------+--------------+---------------------+-------+------+------------+------+
+                | roll | name         | address             | marks | age  | department | s_id |
+                 +------+--------------+---------------------+-------+------+------------+------+
+                |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+                |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+                |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+                |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+                +------+--------------+---------------------+-------+------+------------+------+
+                 4 rows in set (0.0003 sec)
+
+                 MySQL  localhost:3306 ssl  anshul  SQL > select avg(marks)
+                                                       -> from student;
+                +------------+
+                | avg(marks) |
+                +------------+
+                |    35.0000 |
+                +------------+
+                1 row in set (0.0007 sec)
+            </pre>
+
+        <br>
+        <br>
+    </div>
+
+    <div id="likeoperator">
+
+        <h1>SQL LIKE Operator</h1>
+        <br>
+        <br>
+        <p>
+            <i> The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.</i> <br>
+            <br>
+
+            There are two wildcards often used in conjunction with the LIKE operator: <br>
+
+            The percent sign % represents zero, one, or multiple characters <br>
+            The underscore sign _ represents one, single character <br>
+
+            <br>
+
+
+        </p>
+        <h3> Example :-</h3> <br>
+
+        <pre class="tablediagram">
+            MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+
+            | roll | name         | address             | marks | age  | department | s_id |
+            +------+--------------+---------------------+-------+------+------------+------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+            |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+            +------+--------------+---------------------+-------+------+------------+------+
+            4 rows in set (0.0011 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > select * from student
+                                                   -> where name like 'a%';
+            +------+--------------+---------------------+-------+------+------------+------+
+            | roll | name         | address             | marks | age  | department | s_id |
+            +------+--------------+---------------------+-------+------+------------+------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+            |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+            +------+--------------+---------------------+-------+------+------------+------+
+            2 rows in set (0.0007 sec)
+        </pre>
+        <br>
+        <br>
+    </div>
+
+    <div id="view">
+
+        <h1>SQL Views </h1>
+        <br>
+        <br>
+        <p>
+            <i> A view contains rows and columns, just like a real table. The fields in a view are fields from one or
+                more real tables in the database.</i> <br>
+            <br>
+
+        </p>
+        <h3> Example of SQL VIEWS :-</h3> <br>
+
+        <pre class="tablediagram">
+            -- Create StudentDetails table
+            CREATE TABLE StudentDetails (
+            S_ID INT PRIMARY KEY,
+            NAME VARCHAR(255),
+            ADDRESS VARCHAR(255)
+            );
+
+            INSERT INTO StudentDetails (S_ID, NAME, ADDRESS)
+            VALUES
+            (1, 'Harsh', 'Kolkata'),
+            (2, 'Ashish', 'Durgapur'),
+            (3, 'Pratik', 'Delhi'),
+            (4, 'Dhanraj', 'Bihar'),
+            (5, 'Ram', 'Rajasthan');
+
+            -- Create StudentMarks table
+            CREATE TABLE StudentMarks (
+            ID INT PRIMARY KEY,
+            NAME VARCHAR(255),
+            Marks INT,
+            Age INT
+            );
+
+            INSERT INTO StudentMarks (ID, NAME, Marks, Age)
+            VALUES
+            (1, 'Harsh', 90, 19),
+            (2, 'Suresh', 50, 20),
+            (3, 'Pratik', 80, 19),
+            (4, 'Dhanraj', 95, 21),
+            (5, 'Ram', 85, 18);
+
+    </pre>
+
+        <img src="5.JPG" alt="" height="300" width="400">
+        <img src="6.JPG" alt="" height="300" width="400"> <br>
+        <br>
+        <br>
+
+        <pre class="tablediagram">
+        CREATE VIEW StudentNames AS
+        SELECT S_ID, NAME
+        FROM StudentDetails
+        ORDER BY NAME;
+        If we now query the view as,
+
+        SELECT * FROM StudentNames;
+        <br>
+        <img src="7.JPG" alt="" height="300" width="300">
+      </pre>
+    </div>
+
+    <div id="nullvalues">
+
+        <h1>NULL values in SQL </h1>
+        <br>
+        <br>
+        <p>
+            <i> In SQL there may be some records in a table that do not have values or data for every field and those
+                fields are termed as a NULL value.
+                <br>
+                NULL values could be possible because at the time of data entry information is not available. So SQL
+                supports a special value known as NULL which is used to represent the values of attributes that may be
+                unknown or not apply to a tuple. SQL places a NULL value in the field in the absence of a user-defined
+                value. For example, the Apartment_number attribute of an address applies only to addresses that are in
+                apartment buildings and not to other types of residences.
+                <br>
+                So, NULL values are those values in which there is no data value in the particular field in the
+                table.</i> <br>
+            <br>
+
+        </p>
+        <h3> Example :-</h3> <br>
+
+        <pre class="tablediagram">
+            MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+
+            | roll | name         | address             | marks | age  | department | s_id |
+            +------+--------------+---------------------+-------+------+------------+------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+            |    3 | ajay         | #35 nagar           |    30 | NULL | HR         | NULL |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+            +------+--------------+---------------------+-------+------+------------+------+
+            4 rows in set (0.0006 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > select name, roll from student where age is null;
+            +--------------+------+
+            | name         | roll |
+            +--------------+------+
+            | Anshul_kumar |    1 |
+            | mohit        |    2 |
+            | ajay         |    3 |
+            | sumit        |    4 |
+            +--------------+------+
+            4 rows in set (0.0007 sec)
+
+            <br>
+
+            MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+
+            | roll | name         | address             | marks | age  | department | s_id |
+            +------+--------------+---------------------+-------+------+------------+------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL |
+            |    3 | ajay         | #35 nagar           |    30 |   45 | HR         | NULL |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL |
+            +------+--------------+---------------------+-------+------+------------+------+
+            4 rows in set (0.0007 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > select name from student where age is not null;
+            +------+
+            | name |
+            +------+
+            | ajay |
+            +------+
+            1 row in set (0.0006 sec)
+            <br>
+
+         </pre>
+    </div>
+
+
+    <div id="groupby">
+
+        <h1> SQL GROUP BY Statement </h1>
+        <br>
+        <br>
+        <p>
+            <i> The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of
+                customers in each country".
+                <br>
+                The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to
+                group the result-set by one or more columns.</i> <br>
+            <br>
+
+        </p>
+        <h3> Example of Group by statement :-</h3> <br>
+
+        <pre class="tablediagram">
+            MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            | roll | name         | address             | marks | age  | department | s_id | country |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL | India   |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL | America |
+            |    3 | ajay         | #35 nagar           |    30 |   45 | HR         | NULL | India   |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL | India   |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            4 rows in set (0.0006 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > select count(department), country
+                                                   -> from student group by country;
+            +-------------------+---------+
+            | count(department) | country |
+            +-------------------+---------+
+            |                 1 | America |
+            |                 3 | India   |
+            +-------------------+---------+
+            2 rows in set (0.0504 sec)
+
+            <br>
+
+            MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            | roll | name         | address             | marks | age  | department | s_id | country |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL | India   |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL | America |
+            |    3 | ajay         | #35 nagar           |    30 |   45 | HR         | NULL | India   |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL | India   |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            4 rows in set (0.0007 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > select count(roll), country from student group by country;
+            +-------------+---------+
+            | count(roll) | country |
+            +-------------+---------+
+            |           1 | America |
+            |           3 | India   |
+            +-------------+---------+
+            2 rows in set (0.0007 sec)
+
+            <br>
+
+         </pre>
+    </div>
+
+
+    <div id="commitandrollback">
+
+        <h1> COMMIT and ROLLBACK in SQL </h1>
+        <br>
+        <br>
+        <p>
+            <i> COMMIT in SQL is a transaction control language that is used to permanently save the changes done in the
+                transaction in tables/databases. The database cannot regain its previous state after its execution of
+                commit. <br>
+                ROLLBACK in SQL is a transactional control language that is used to undo the transactions that have not
+                been saved in the database. The command is only been used to undo changes since the last COMMIT.
+            </i> <br>
+
+            <br>
+
+        </p>
+        <h3> Example of Commit and rollback statement :-</h3> <br>
+
+        <pre class="tablediagram">
+            MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            | roll | name         | address             | marks | age  | department | s_id | country |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    10 | NULL | HR         | NULL | India   |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL | America |
+            |    3 | ajay         | #35 nagar           |    30 |   45 | HR         | NULL | India   |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL | India   |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            4 rows in set (0.0007 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > update student
+                                                   -> set marks=40
+                                                   -> where roll=1;
+            Query OK, 1 row affected (0.0425 sec)
+            
+            Rows matched: 1  Changed: 1  Warnings: 0
+             MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            | roll | name         | address             | marks | age  | department | s_id | country |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            |    1 | Anshul_kumar | #454 dashmesh nagar |    40 | NULL | HR         | NULL | India   |
+            |    2 | mohit        | #454  nagar         |    20 | NULL | IT         | NULL | America |
+            |    3 | ajay         | #35 nagar           |    30 |   45 | HR         | NULL | India   |
+            |    4 | sumit        | #45 newdelhi        |    80 | NULL | IT         | NULL | India   |
+            +------+--------------+---------------------+-------+------+------------+------+---------+
+            4 rows in set (0.0007 sec)
+             MySQL  localhost:3306 ssl  anshul  SQL > commit;
+             <br>
+            Query OK, 0 rows affected (0.0002 sec)
+            <br>
+             MySQL  localhost:3306 ssl  anshul  SQL > delete from student;
+             <br>
+            Query OK, 4 rows affected (0.0553 sec)
+            <br>
+             MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+             <br>
+            Empty set (0.0008 sec)
+            <br>
+             MySQL  localhost:3306 ssl  anshul  SQL > rollback;
+             <br>
+            Query OK, 0 rows affected (0.0004 sec)
+            <br>
+             MySQL  localhost:3306 ssl  anshul  SQL > select * from student;
+             <br>
+            Empty set (0.0008 sec)
+            <br>
+
+            <br>
+
+         </pre>
+    </div>
+
+
+    <div id="grantandrevoke">
+
+        <h1> Grant and Revoke Command </h1>
+        <br>
+        <br>
+        <p>
+            <i> The grant statement enables system administrators to assign privileges and roles to the MySQL user
+                accounts so that they can use the assigned permission on the database whenever required.
+                <br>
+                The revoke statement enables system administrators to revoke privileges and roles to the MySQL user
+                accounts so that they cannot use the assigned permission on the database in the past.
+            </i> <br>
+
+            <br>
+
+        </p>
+        <h3> Example of Grant and Revoke command :-</h3> <br>
+
+        <pre class="tablediagram">
+
+            mysql> CREATE USER john@localhost IDENTIFIED BY 'jtp12345'; 
+            <br>
+            mysql> SHOW GRANTS FOR john@localhost;  
+            <br>
+            <img src="8.JPG" alt="" height="200" width="400">
+            <br>
+            mysql> GRANT ALL ON mystudentdb.* TO john@localhost;  
+            <br>
+            <img src="9.JPG" alt="" height="200" width="400">
+            <br>
+            mysql> REVOKE ALL, GRANT OPTION FROM john@localhost;  
+            <br>
+            <img src="10.JPG" alt="" height="200" width="400">
+            <br>
+
+        </pre>
+    </div>
+
+
+
+
+    <div id="joins">
+
+        <h1> SQL Joins </h1>
+        <br>
+        <br>
+        <p>
+            <i> A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+            </i>
+            <br>
+            <br>
+        <p>
+            <b> Different Types of SQL JOINs :- </b> <br>
+
+            (INNER) JOIN: Returns records that have matching values in both tables <br>
+            LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+            <br>
+            RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+            <br>
+            FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table <br>
+            <br>
+        </p>
+
+        </p>
+
+        <img src="11.JPG" alt="" height="400" width="700">
+        <h3> Example of SQL Joins :-</h3> <br>
+
+        <pre class="tablediagram">
+
+            <img src="12.JPG" alt="" height="300" width="500">
+            <br>
+            <img src="13.JPG" alt="" height="300" width="500">
+            <br>
+
+            SELECT StudentCourse.COURSE_ID, Student.NAME, Student.AGE FROM Student
+            INNER JOIN StudentCourse
+            ON Student.ROLL_NO = StudentCourse.ROLL_NO;
+
+            <br>
+            
+            <img src="14.JPG" alt="" height="300" width="500">
+            <br>
+            Example Queries(LEFT JOIN): 
+
+            SELECT Student.NAME,StudentCourse.COURSE_ID 
+            FROM Student
+            LEFT JOIN StudentCourse 
+            ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+
+            <br>
+            <img src="15.JPG" alt="" height="300" width="500">
+            <br>
+            Example Queries(RIGHT JOIN):
+
+            SELECT Student.NAME,StudentCourse.COURSE_ID 
+            FROM Student
+            RIGHT JOIN StudentCourse 
+            ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+
+            <br>
+            <img src="16.JPG" alt="" height="300" width="500">
+            <br>
+
+            Example Queries(FULL JOIN): 
+
+            SELECT Student.NAME,StudentCourse.COURSE_ID 
+            FROM Student
+            FULL JOIN StudentCourse 
+            ON StudentCourse.ROLL_NO = Student.ROLL_NO;
+            <br>
+
+            <img src="17.JPG" alt="" height="800" width="300">
+
+            
+
+
+
+        </pre>
+    </div>
+
+
+    <div id="introductionofplsql">
+
+        <h1> Introduction of PL/SQL </h1>
+        <br>
+        <br>
+        <p>
+            <i> PL/SQL is a block structured language that enables developers to combine the power of SQL with
+                procedural statements.All the statements of a block are passed to oracle engine all at once which
+                increases processing speed and decreases the traffic.
+            </i>
+            <br>
+            <br>
+        <p>
+            <b> Basics of PL/SQL :- </b> <br>
+
+            PL/SQL stands for Procedural Language extensions to the Structured Query Language (SQL). <br>
+            PL/SQL is a combination of SQL along with the procedural features of programming languages.
+            <br>
+            Oracle uses a PL/SQL engine to processes the PL/SQL statements.
+            <br>
+            PL/SQL includes procedural language elements like conditions and loops. It allows declaration of constants
+            and variables, procedures and functions, types and variable of those types and triggers. <br>
+            <br>
+
+            <b> Disadvantages of SQL :- </b> <br>
+
+            SQL doesn’t provide the programmers with a technique of condition checking, looping and branching.
+            <br>
+            SQL statements are passed to Oracle engine one at a time which increases traffic and decreases speed.
+            <br>
+            SQL has no facility of error checking during manipulation of data.
+            <br>
+            <br>
+
+            <b> Features of PL/SQL :- </b> <br>
+
+            PL/SQL is basically a procedural language, which provides the functionality of decision making, iteration
+            and many more features of procedural programming languages.
+            <br>
+            PL/SQL can execute a number of queries in one block using single command.
+            <br>
+            One can create a PL/SQL unit such as procedures, functions, packages, triggers, and types, which are stored
+            in the database for reuse by applications.
+            <br>
+            PL/SQL provides a feature to handle the exception which occurs in PL/SQL block known as exception handling
+            block.
+            <br>
+            Applications written in PL/SQL are portable to computer hardware or operating system where Oracle is
+            operational.
+            <br>
+            <br>
+
+
+
+            <b> Structure of PL/SQL Block: :- </b> <br>
+
+            PL/SQL extends SQL by adding constructs found in procedural languages, resulting in a structural language
+            that is more powerful than SQL. The basic unit in PL/SQL is a block. All PL/SQL programs are made up of
+            blocks, which can be nested within each other.
+            <br>
+            <br>
+
+            <img src="18.JPG" alt="" height="400" width="600">
+
+            <br>
+            <br>
+        </p>
+
+        </p>
+
+        <pre class="tablediagram">
+
+        <b> Typically, each block performs a logical action in the program. A block has the following structure: </b>
+          <br>
+         DECLARE <br>
+           declaration statements; <br>
+ 
+         BEGIN <br>
+           executable statements <br>
+
+         EXCEPTIONS <br>
+           exception handling statements <br>
+
+         END; <br>
+         <br>
+         </pre>
+
+
+        </pre>
+
+    </div>
+
+
+
+
+
+
+
+    <div id="variabless">
+
+        <h1> PL/SQL Variables </h1>
+        <br>
+        <br>
+        <p>
+            <i> A variable is a meaningful name which facilitates a programmer to store data temporarily during the
+                execution of code. It helps you to manipulate data in PL/SQL programs. It is nothing except a name given
+                to a storage area. Each variable in the PL/SQL has a specific data type which defines the size and
+                layout of the variable's memory.
+                <br>
+                A variable should not exceed 30 characters. Its letter optionally followed by more letters, dollar
+                signs, numerals, underscore etc.
+            </i>
+            <br>
+            <br>
+        </p>
+
+
+        <h3> Example of Initializing Variable :-</h3> <br>
+
+        <pre class="tablediagram">
+
+        DECLARE  <br>
+          a integer := 30;   <br>
+          b integer := 40;  <br>
+          c integer;  <br>
+          f real;  <br>
+        BEGIN  <br>
+          c := a + b;   <br> 
+          dbms_output.put_line('Value of c: ' || c);  <br>
+          f := 100.0/3.0;  <br>
+          dbms_output.put_line('Value of f: ' || f); <br> 
+        END;  <br> 
+
+        <br>
+        
+        <img src="19.JPG" alt="" height="300" width="500">
+        
+        <br>
+
+        <img src="20.JPG" alt="" height="700" width="700">
+        
+        <br>
+
+        <img src="21.JPG" alt="" height="300" width="500">
+        <br>
+
+     </pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div id="proceduress">
+
+        <h1> PL/SQL Procedure </h1>
+        <br>
+        <br>
+        <p>
+            <i> The PL/SQL stored procedure or simply a procedure is a PL/SQL block which performs one or more specific
+                tasks. It is just like procedures in other programming languages.
+                <br>
+                <br>
+                The procedure contains a header and a body. <br>
+                Header:- The header contains the name of the procedure and the parameters or variables passed to the
+                procedure. <br>
+                Body:- The body contains a declaration section, execution section and exception section similar to a
+                general PL/SQL block.
+            </i>
+            <br>
+            <br>
+        </p>
+
+
+        <h3> Example of Procedure :-</h3> <br>
+
+        <pre class="tablediagram">
+
+       <b>Table creation:-</b> <br>
+        create table user(id number(10) primary key,name varchar2(100)); <br>
+        
+        <b>Procedure Code:- </b>
+
+          create or replace procedure "INSERTUSER"  <br>  
+          (id IN NUMBER,    <br>
+          name IN VARCHAR2)    <br>
+          is    <br>
+          begin    <br>
+          insert into user values(id,name); <br>    
+          end;    <br>
+          /       <br>
+
+          <b>Output:- </b>
+
+          Procedure created.
+          <br>
+
+          <b>PL/SQL program to call procedure :-</b>
+
+          BEGIN    <br>
+          insertuser(101,'Rahul');  <br>
+          dbms_output.put_line('record inserted successfully'); <br>    
+          END;    <br>
+          /    <br>
+          
+         <br>
+        
+        <img src="22.JPG" alt="" height="300" width="600">
+        
+        <br>
+
+        <img src="23.JPG" alt="" height="300" width="600">
+
+     </pre>
+    </div>
+
+
+
+
+
+
+
+
+    <div id="functionss">
+
+        <h1> PL/SQL Functions </h1>
+        <br>
+        <br>
+        <p>
+            <i> The PL/SQL Function is very similar to PL/SQL Procedure. The main difference between procedure and a
+                function is, a function must always return a value, and on the other hand a procedure may or may not
+                return a value. Except this, all the other things of PL/SQL procedure are true for PL/SQL function too.
+
+            </i>
+            <br>
+            <br>
+        </p>
+
+
+        <h3> PL/SQL Function Example :-</h3> <br>
+
+        <pre class="tablediagram">
+
+            create or replace function adder(n1 in number, n2 in number)   <br> 
+            return number    <br>
+            is     <br>
+            n3 number(8);     <br>
+            begin    <br>
+            n3 :=n1+n2;    <br>
+            return n3;    <br>
+            end;    <br>
+            / <br>
+            
+           <b> Now write another program to call the function. </b>
+
+            DECLARE   <br> 
+              n3 number(2); <br>   
+            BEGIN    <br>
+              n3 := adder(11,22);    <br>
+              dbms_output.put_line('Addition is: ' || n3); <br>   
+            END;    <br>
+             /    <br>
+
+          <b>Output:- </b>
+          <br>
+          Addition is: 33 <br>
+          Statement processed. <br>
+          0.05 seconds <br>
+          <br>
+
+          <b>PL/SQL function example using table :-</b>
+        
+        <img src="24.JPG" alt="" height="400" width="600">
+        
+        <br>
+
+        <b>Create a function:- </b>
+
+        CREATE OR REPLACE FUNCTION totalCustomers  <br>
+          RETURN number IS  <br>
+          total number(2) := 0; <br> 
+        BEGIN  <br>
+          SELECT count(*) into total <br>  
+          FROM customers;  <br>
+          RETURN total;  <br>
+        END;  <br>
+        /  <br>
+
+        <br>
+
+        <b>Calling the PL/SQL Function:- </b> <br>
+
+        DECLARE  <br>
+            c number(2); <br>  
+        BEGIN  <br>
+            c := totalCustomers();  <br>
+            dbms_output.put_line('Total no. of Customers: ' || c); <br>  
+        END;  <br>
+        /  <br>
+
+        <br>
+        <b>Output:- </b> <br>
+        <img src="25.JPG" alt="" height="300" width="500">
+        
+        <br>
+
+     </pre>
+    </div>
+
+
+
+
+
+    <div id="cursorss">
+
+        <h1> PL/SQL Cursor </h1>
+        <br>
+        <br>
+        <p>
+            <i> When an SQL statement is processed, Oracle creates a memory area known as context area. A cursor is a
+                pointer to this context area. It contains all information needed for processing the statement. In
+                PL/SQL, the context area is controlled by Cursor. A cursor contains information on a select statement
+                and the rows of data accessed by it.
+                <br>
+                A cursor is used to referred to a program to fetch and process the rows returned by the SQL statement,
+                one at a time. <br>
+                There are two types of cursors: <br>
+                <br>
+                Implicit Cursors <br>
+                Explicit Cursors <br>
+
+            </i>
+            <br>
+            <br>
+        </p>
+
+
+        <h3> PL/SQL Cursors Example :-</h3> <br>
+
+        <pre class="tablediagram">
+        <b>PL/SQL Implicit Cursor Example</b> <br>
+
+        <img src="26.JPG" alt="" height="400" width="600">
+        
+        <br>
+        <b> Create a procedure:- </b> <br>
+        <img src="27.JPG" alt="" height="400" width="600"> <br>
+
+        <b>Output<:- </b> <br>
+
+        6 customers updated <br>
+        PL/SQL procedure successfully completed. <br>
+
+        <img src="28.JPG" alt="" height="400" width="600"> <br>
+
+        <b>PL/SQL Explicit Cursor Example :- </b> <br>
+
+        <img src="29.JPG" alt="" height="400" width="600">
+        <br>
+
+        <img src="30.JPG" alt="" height="600" width="600">
+        <br>
+
+        <b>Ouput:- </b> <br>
+ 
+        1  Ramesh  Allahabad  <br>
+        2  Suresh  Kanpur <br>
+        3  Mahesh  Ghaziabad <br>
+        4  Chandan  Noida <br>
+        5  Alex  Paris <br>
+        6  Sunita  Delhi <br>
+        PL/SQL procedure successfully completed. <br>
+        
+        <br>
+
+     </pre>
+    </div>
+
+
+
+
+
+
+    <div id="triggerss">
+
+        <h1> PL/SQL Trigger </h1>
+        <br>
+        <br>
+        <p>
+            <i> Trigger is invoked by Oracle engine automatically whenever a specified event occurs.Trigger is stored
+                into database and invoked repeatedly, when specific condition match.
+                <br>
+                Triggers are stored programs, which are automatically executed or fired when some event occurs.
+                <br>
+                Triggers are written to be executed in response to any of the following events.
+                <br>
+                <br>
+                A database manipulation (DML) statement (DELETE, INSERT, or UPDATE). <br>
+                A database definition (DDL) statement (CREATE, ALTER, or DROP). <br>
+                A database operation (SERVERERROR, LOGON, LOGOFF, STARTUP, or SHUTDOWN). <br>
+                Triggers could be defined on the table, view, schema, or database with which the event is associated.
+                <br>
+            </i>
+            <br>
+            <br>
+        </p>
+
+
+        <h3> PL/SQL Trigger Example :-</h3> <br>
+
+        <pre class="tablediagram">
+
+        <img src="31.JPG" alt="" height="400" width="600">
+        
+        <br>
+        
+        <img src="32.JPG" alt="" height="600" width="600"> <br>
+
+        <img src="33.JPG" alt="" height="600" width="600"> <br>
+
+        <img src="34.JPG" alt="" height="800" width="600"> <br>
+
+        
+
+     </pre>
+    </div>
+
+
+
+
+
+
+    <div id="exceptionss">
+
+        <h1> PL/SQL Exception Handling </h1>
+        <br>
+        <br>
+        <p>
+            <i> An error occurs during the program execution is called Exception in PL/SQL.
+                <br>
+                PL/SQL facilitates programmers to catch such conditions using exception block in the program and an
+                appropriate action is taken against the error condition.
+                <br>
+                There are two type of exceptions: <br>
+                System-defined Exceptions <br>
+                User-defined Exceptions <br>
+
+            </i>
+            <br>
+            <br>
+        </p>
+
+
+        <h3> PL/SQL Exception handling Example :-</h3> <br>
+
+        <pre class="tablediagram">
+
+        <img src="35.JPG" alt="" height="400" width="600">
+        
+        <br>
+        
+        <img src="36.JPG" alt="" height="600" width="500"> <br>
+
+        <b>Output:- </b> <br>
+
+        After the execution of above code at SQL Prompt, it produces the following result:
+
+        No such customer! <br>
+        PL/SQL procedure successfully completed. <br>
+       
+        <b>The above program should show the name and address of a customer as result whose ID is given. <br>
+        But there is no customer with ID value 8 in our database, so the program raises the run-time exception <br> 
+        NO_DATA_FOUND, which is captured in EXCEPTION block. </b>
+
+    </pre>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </p>
+    </div>
+</body>
+
+</html>

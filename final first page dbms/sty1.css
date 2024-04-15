@@ -1,0 +1,133 @@
+* {
+  padding: 1px;
+  margin: 1px;
+  border-radius: 15px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#myBtn {
+  display: inline;
+  position: fixed;
+  bottom: 40px;
+  right: 10px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: orangered;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+
+}
+
+#myBtn:hover {
+  background-color: orangered;
+}
+
+
+h1 {
+  text-align: center;
+  color: white;
+  background-color: orangered;
+  font-size: 50px;
+}
+
+#onlyfirstintro{
+  color: orangered;
+  background-color: white;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  margin-left: 10px;
+
+}
+
+ul {
+  list-style: none;
+  background: #172D13;
+
+
+}
+
+ul li {
+  display: inline-block;
+  position: relative;
+}
+
+ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+}
+
+ul li ul.dropdown li {
+ display: block;
+ background: orangered;
+ margin: 10px 20px;
+}
+
+ul li ul.dropdown {
+  width: auto;
+  background: #172D13;
+  position: absolute;
+  z-index: 999;
+  display: none;
+}
+
+ul li a:hover {
+  background: orangered;
+
+}
+
+ul li:hover ul.dropdown {
+display: block;
+
+}
+
+
+
+h2{
+  color: darkviolet;
+}
+
+h3{
+  color: green;
+  font-size: 22px;
+  
+}
+
+
+.tablediagram{
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
